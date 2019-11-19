@@ -12,5 +12,6 @@ main.o: main.c
 clean:
 	rm *.o
 	rm *~
+
 run: all
-	./program
+	./program ..
