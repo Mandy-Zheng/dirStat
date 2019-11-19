@@ -11,8 +11,6 @@ int main(int argc, char const *argv[]) {
   DIR * opened;
   char * buf;
   if(argc>1){
-    //fgets(buf,1000,stdin);
-    //buf[strlen(buf)-1]='\0';
     opened=opendir(argv[1]);
     printf("\nStatistics for Directory with Path %s:\n",argv[1]);
   }else{
@@ -45,22 +43,23 @@ int main(int argc, char const *argv[]) {
         }
       }
       size+=readfile.st_size;
+      //printf("\n %s: %d", );
       read=readdir(opened);
     }
   }else{
     printf("Error %s\n",strerror(errno));
   }
   if(size>=1073741824){
-    double newsize=size/1073741824.0;
-    printf("Total Current Directory Size: %.2f GB\n",floorf(newsize*100)/100);
+    float newsize=(size * 100) / 1073741824.0 /100.0;
+    printf("Total Current Directory Size: %.2f GB\n",newsize);
   }
   else if(size>=1048576){
-    double newsize=size/1048576.0;
-    printf("Total Current Directory Size: %.2f MB\n",floorf(newsize*100)/100);
+    float newsize=(size * 100) / 1048576.0 /100.0;
+    printf("Total Current Directory Size: %.2f MB\n",newsize);
   }
   else if(size>=1024){
-    float newsize=size/1024.0;
-    printf("Total Current Directory Size: %.2f KB\n",floorf(newsize*100)/100);
+    float newsize=(size * 100) / 1024 /100.0;
+    printf("Total Current Directory Size: %.2f KB\n",newsize);
   }
   else{
     printf("Total Current Directory Size: %d Bytes\n",size);

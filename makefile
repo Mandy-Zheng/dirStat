@@ -11,6 +11,7 @@ main.o: main.c
 
 clean:
 	rm *.o
+	rm *.exe
 	rm *~
 
 run: all
