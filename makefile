@@ -5,7 +5,6 @@ else
 endif
 all: main.o
 	$(CC) -o program main.o
-
 main.o: main.c
 	$(CC) -c main.c
 
@@ -15,4 +14,4 @@ clean:
 	rm *~
 
 run: all
-	./program ..
+		$(info Please enter a Path to Scan:)./program $(info Please enter a Path to Scan:)
